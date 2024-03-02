@@ -26,6 +26,41 @@ import net.serenitybdd.junit5.SerenityJUnit5Extension;
 
 @ExtendWith(SerenityJUnit5Extension.class)
 public class AntiPatternTestSuite {
+	@Managed(driver="firefox")
+	private WebDriver navegador;	
+	private String baseUrl="https://wikitravel.org/en/Peru";
+	
+	@Test
+	@Tag("antipattern")
+	@DisplayName("Buscar en wiki de viaje mediante anti patron")
+	public void buscarPalabrasClave() {
+		try {
+		String palabraClave="Arequipa";
+		navegador.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		navegador.get(baseUrl);
+		capturarImagen(navegador,"paso1");
+		navegador
+			.findElement(By.id("searchInput"))
+			.sendKeys(palabraClave, Keys.ENTER);
 
+		WebDriverWait wait = new WebDriverWait(navegador, Duration.ofSeconds(6));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".searchresults")));
+		capturarImagen(navegador,"paso2");
+		List<WebElement> resultLinks = navegador.findElements(By.cssSelector(".mw-search-result-heading > a"));
+		assertTrue(resultLinks.size()>0);
+		resultLinks.get(0).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#mf-pagebanner > div.topbanner > div.name")));	
+		capturarImagen(navegador,"paso3");
+		assertThat(navegador.findElement(By.cssSelector("#mf-pagebanner > div.topbanner > div.name")).getText().toUpperCase().contains(palabraClave.toUpperCase()));
+		} catch(Exception ex) {
+			ex.printStackTrace();
+			navegador.close();
+		}
+	}
+	
+	public void capturarImagen(WebDriver navegador,String filename) throws Exception{
+		File scrFile = ((TakesScreenshot)navegador).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(scrFile, new File(String.format("E:\\screenshots\\%1$s.png",filename)));
+	}
 
 }
