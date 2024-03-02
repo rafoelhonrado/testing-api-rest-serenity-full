@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.io.File;
 import java.time.Duration;
 import java.util.List;
-
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
@@ -21,7 +20,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import net.serenitybdd.annotations.Managed;
 import net.serenitybdd.annotations.WithTag;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
@@ -48,8 +46,6 @@ public class AntiPatternTestSuite {
 		WebDriverWait wait = new WebDriverWait(navegador, Duration.ofSeconds(6));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".searchresults")));
 		capturarImagen(navegador,"paso2");
-		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div[3]/div[4]/table/tbody/tr/td[1]/div[2]/ul[1]/li/div[1]")));
-		//navegador.findElement(By.xpath("/html/body/div[4]/div[3]/div[4]/table/tbody/tr/td[1]/div[2]/ul[1]/li/div[1]/a")).click();
 		List<WebElement> resultLinks = navegador.findElements(By.cssSelector(".mw-search-result-heading > a"));
 		assertTrue(resultLinks.size()>0);
 		resultLinks.get(0).click();
