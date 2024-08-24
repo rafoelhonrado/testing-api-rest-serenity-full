@@ -60,7 +60,7 @@ public class ScreenplayRestInteractionsTestSuite {
 
 		authorizeUser.attemptsTo(
 				Post.to("api/v1/product/")
-						.with(request -> request.header("Content-Type", "application/json")
+						.with(request -> request.header("Content-Type", "application/json").and().header("Authorization","Bearer aGFzaGRzZnNkZnNkZnNkZnNk")
 								.body(productRequest)));
 		authorizeUser.should(
 				seeThatResponse("El codigo de respuesta es 200 y el estado es verdadero",

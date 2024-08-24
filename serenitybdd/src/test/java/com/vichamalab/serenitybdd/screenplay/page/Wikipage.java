@@ -7,7 +7,6 @@ import net.serenitybdd.screenplay.targets.Target;
 
 @DefaultUrl("https://wikitravel.org/en/Peru")
 public class Wikipage extends PageObject {
-	//public static final Target CASILLA_BUSQUEDA = Target.the("casilla de búsqueda").locatedBy("#searchInput");
 	public static final Target CASILLA_BUSQUEDA = Target.the("casilla de búsqueda").located(By.cssSelector("#searchInput"));
 	public static final Target TITULO_PAGINA = Target.the("titulo de pagina").locatedBy("#mf-pagebanner > div.topbanner > div.name");
 }

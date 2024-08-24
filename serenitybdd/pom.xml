@@ -1,10 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.vichamalab</groupId>
-  <artifactId>serenitybdd</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  
-  	<properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.vichamalab</groupId>
+	<artifactId>serenitybdd</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
 		<serenity.version>4.0.14</serenity.version>
 		<junit5.version>5.10.0</junit5.version>
 		<maven.surefire.version>3.1.2</maven.surefire.version>
@@ -19,8 +21,8 @@
 		<webdriver.base.url></webdriver.base.url>
 		<restapi.baseurl></restapi.baseurl>
 	</properties>
-	
-		<dependencies>
+
+	<dependencies>
 		<dependency>
 			<groupId>net.serenity-bdd</groupId>
 			<artifactId>serenity-core</artifactId>
@@ -102,31 +104,31 @@
 			<version>${serenity.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
-		    <dependency>
-        <groupId>io.cucumber</groupId>
-        <artifactId>cucumber-junit-platform-engine</artifactId>
-        <version>7.14.0</version>
-        <scope>test</scope>
-    </dependency>
-    
-    <dependency>
-        <groupId>org.junit.platform</groupId>
-        <artifactId>junit-platform-suite</artifactId>
-        <version>1.10.0</version>
-        <scope>test</scope>
-    </dependency>
-    
-  	<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter</artifactId>
-			 <version>5.10.0</version>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit-platform-engine</artifactId>
+			<version>7.14.0</version>
 			<scope>test</scope>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-suite</artifactId>
+			<version>1.10.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.10.0</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
-	
-		<build>
+
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -195,7 +197,7 @@
 				</configuration>
 				<executions>
 					<execution>
-						<id>serenity-reports</id>
+						<id>serenity-reports2</id>
 						<phase>post-integration-test</phase>
 						<goals>
 							<goal>aggregate</goal>

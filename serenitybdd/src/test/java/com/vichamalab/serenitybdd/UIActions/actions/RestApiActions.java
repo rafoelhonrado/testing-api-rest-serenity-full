@@ -36,7 +36,7 @@ public class RestApiActions extends UIInteractions {
     	productRequest.setName("Nombre");
     	productRequest.setDescription("Descripcion");
     	productRequest.setPrice(1500);
-		response = given().contentType(ContentType.JSON)// Headers
+		response = given().contentType(ContentType.JSON).header("Authorization","Bearer aGFzaGRzZnNkZnNkZnNkZnNk")
 				.body(productRequest).when().post(currentUrl)// Uri
 				.then().extract().response();
     }

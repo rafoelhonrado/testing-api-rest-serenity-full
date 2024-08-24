@@ -60,7 +60,7 @@ public class AntiPatternTestSuite {
 	
 	public void capturarImagen(WebDriver navegador,String filename) throws Exception{
 		File scrFile = ((TakesScreenshot)navegador).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(scrFile, new File(String.format("E:\\screenshots\\%1$s.png",filename)));
+		FileUtils.copyFile(scrFile, new File(String.format("D:\\screenshots\\%1$s.png",filename)));
 	}
 
 }
